@@ -1,0 +1,33 @@
+---
+layout: layouts/base.njk
+---
+{% for item in items %}
+<div class="col mb-5">
+    <div class="card h-100">
+        <!-- Product image-->
+        <img class="card-img-top" style="object-fit: cover;" src="{{ item.imgpath }}" alt="{{ item.imgalt }}"/>
+        <!-- Product details-->
+        <div class="card-body p-4">
+            <div class="text-center">
+                <!-- Product name-->
+                <h5 class="fw-bolder">{{ item.name }}</h5>
+                <!-- Product price-->
+                <p>{{ item.price }} $</p>
+            </div>
+        </div>
+        <!-- Product actions-->
+        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+            <div class="text-center">
+                <button class="btn btn-outline-dark mt-auto snipcart-add-item" 
+                data-item-id="{{ item.id }}"
+                data-item-price="{{ item.price }}"
+                data-item-description="{{ item.description }}"
+                data-item-image="{{ item.imgpath }}"
+                data-item-name="{{ item.name }}">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
